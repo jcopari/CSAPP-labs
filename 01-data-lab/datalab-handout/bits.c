@@ -135,15 +135,16 @@ NOTES:
 
 #endif
 //1
-/* 
+/*   Jcopari example: 4(0100) ^ 5(0101) = 1;
  * bitXor - x^y using only ~ and & 
  *   Example: bitXor(4, 5) = 1
  *   Legal ops: ~ &
  *   Max ops: 14
  *   Rating: 1
  */
-int bitXor(int x, int y) {
-  return 2;
+
+ int bitXor(int x, int y) {
+  return (~(x & y)) & (~(~x & ~y)); //Done
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -152,9 +153,7 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int tmin(void) {
-
-  return 2;
-
+  return (1 << 31); //Done
 }
 //2
 /*
@@ -165,7 +164,7 @@ int tmin(void) {
  *   Rating: 1
  */
 int isTmax(int x) {
-  return 2;
+  return !((x + 1) ^ ~x) & !!( x + 1);
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
